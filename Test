@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>English Mini Quiz</title>
+</head>
+<body>
+  <h1>English Mini Quiz</h1>
+  <p>Choose the correct word: She ___ to school every day.</p>
+
+  <button type="button" data-answer="go">go</button>
+  <button type="button" data-answer="goes">goes</button>
+  <button type="button" data-answer="going">going</button>
+
+  <p id="feedback" role="status"></p>
+
+  <script>
+    const feedback = document.querySelector("#feedback");
+    const answerButtons = document.querySelectorAll("[data-answer]");
+
+    for (const button of answerButtons) {
+      button.addEventListener("click", () => {
+        if (button.dataset.answer === "goes") {
+          feedback.textContent = "Correct! We say “she goes”.";
+        } else {
+          feedback.textContent = "Try again. Which form goes with “she”?";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
